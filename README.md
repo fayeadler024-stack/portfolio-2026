@@ -1,6 +1,6 @@
 # Portfolio — Landscape A4
 
-现有 React / TypeScript / Vinext 项目，保留原有路由、连续滚动阅读、菜单、项目转场、进度和全屏查看。
+React / TypeScript / Next.js App Router 项目，保留原有路由、连续滚动阅读、菜单、项目转场、进度和全屏查看。
 
 ## 本地运行
 
@@ -43,11 +43,28 @@ Cover 使用原始 `public/assets/cover/cover.png`，1890 × 1063。Cover 按其
 
 背景使用 #F4F0EA，文字 #34221C，次级文字 #6F625A，细线 #CFC5B8。项目强调色在数据中集中设置。纸纹是 `public/assets/ui/paper-grain.svg`，alpha 6.5%，仅用于网页背景，不覆盖任何作品。
 
-## 原始素材与发布状态
+## Vercel production deployment
 
-Concrete、Interstices、Josie 分别原样复制自提供磁盘上的 P1、P2、P3 文件夹；Cover 同样原样复制。没有压缩重编码、裁切、调色或重新生成这些原始素材。
+默认 dev / build / start 分别使用 next dev / next build / next start。
+next.config.ts 保持 Next.js 默认输出，不使用静态 export 或自定义 distDir。
+vercel.json 固定部署配置：
 
-当前工作区的 hosting.json 未包含 site project_id，已连接 Sites 账户中未找到对应 portfolio。因此本轮完成并验证的是现有本地项目，没有新建网站或更新无法确认身份的线上站点。后续需要已发布网址及对应发布配置才能更新那个站点。
+- Framework Preset: Next.js
+- Root Directory: 仓库根目录（./）
+- Install Command: npm install
+- Build Command: npm run build
+- Output Directory: .next
+- Node.js: 22.x
+
+构建应生成 .next/routes-manifest.json、.next/BUILD_ID 和四个项目的预渲染页面。
+不要把 Output Directory 设置成 dist、public 或 .next/standalone。
+Vercel 通过 GitHub 集成部署最新 main 提交；若旧部署没有更新，请选择最新提交重新部署。
+
+旧 vite.config.ts、build/、scripts/ 中的 Sites/Vinext/Cloudflare 工具保留，但默认构建不再调用它们。
+db/、drizzle/ 是未被作品集页面导入的模板模块，当前网站不需要数据库、Cloudflare binding 或环境变量。
+保留这些文件避免无关清理；无需运行 db:generate 或 Cloudflare 命令。
+
+Concrete、Interstices、Josie 和 Cover 原始素材未压缩重编码、裁切、调色或重新生成。
 
 ## GitHub 仓库
 
