@@ -4,7 +4,7 @@ export const profile = {
   introduction: 'I am a multidisciplinary designer exploring the connections between visual communication, space and everyday life.',
   biography: 'Write a short introduction here: your background, the questions that drive your practice, and what you hope to explore next.',
   fields: ['Visual Design', 'Creative Communication', 'Landscape Architecture', 'Photography', 'Art Direction', 'AI-assisted Design'],
-  email: 'fayeadler024@Gmail.com',
+  email: 'fayeadler024@gmail.com',
   links: [] as { label: string; url: string }[],
 };
 export const covers = [{ src: '/assets/cover/cover.png', alt: 'Portfolio — multidisciplinary design, original collage cover', width: 1890, height: 1063 }];
