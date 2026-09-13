@@ -150,3 +150,14 @@ header>a:first-child{letter-spacing:.075em}
   .artwork figcaption{font-size:12px;padding:12px 2vw 0}
   .cover{padding-bottom:85px}.cover>img{max-width:96vw}
 }
+
+
+/* Cover-only landscape sheet. Crop the display, never the source PNG. */
+.cover{height:100svh;min-height:0;padding:100px 0 24px}
+.cover-sheet{display:block;position:relative;flex:none;width:min(90vw,1400px,calc((100svh - 124px)*297/210));aspect-ratio:297/210;overflow:hidden}
+.cover-sheet>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;max-width:none;max-height:none}
+.cover-sheet>.image-error{width:100%;height:100%;aspect-ratio:297/210}
+@media(max-width:767px){
+  .cover{padding:88px 0 24px}
+  .cover-sheet{width:min(96vw,1400px,calc((100svh - 112px)*297/210))}
+}
