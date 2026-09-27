@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".065"/></feComponentTransfer></filter><rect width="100%" height="100%" filter="url(#paper)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <!-- Seamless cotton-paper grain, rendered behind content only. -->
+  <filter id="cotton" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".48" numOctaves="3" seed="17" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer>
+      <feFuncR type="linear" slope=".45" intercept=".28"/>
+      <feFuncG type="linear" slope=".40" intercept=".23"/>
+      <feFuncB type="linear" slope=".35" intercept=".19"/>
+      <feFuncA type="linear" slope=".22"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="fibers" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".035 .32" numOctaves="3" seed="8" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope=".07"/></feComponentTransfer>
+  </filter>
+  <path d="M0 0h320v320H0z" filter="url(#cotton)"/>
+  <path d="M0 0h320v320H0z" filter="url(#fibers)"/>
+</svg>

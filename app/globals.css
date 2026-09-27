@@ -3,7 +3,7 @@
 @import "../vendor/shadcn-tailwind-4.13.0.css";
 /* Shared UI palette. Artwork is never tinted, filtered or overlaid. */
 :root{
-  --background:#F4F0EA;
+  --background:#EEE6DB;
   --foreground:#34221C;
   --muted-foreground:#6F625A;
   --border:#CFC5B8;
@@ -161,3 +161,12 @@ header>a:first-child{letter-spacing:.075em}
   .cover{padding:88px 0 24px}
   .cover-sheet{width:min(96vw,1400px,calc((100svh - 112px)*297/210))}
 }
+
+
+/* The paper surface stays behind UI content, never over artwork or video. */
+body,header,.menu-dialog[data-slot=dialog-content],.lightbox-toolbar,.lightbox-dialog[data-slot=dialog-content],.contact{
+  background-image:url('/assets/ui/paper-grain.svg');
+  background-size:320px 320px;
+  background-repeat:repeat;
+}
+@media(max-width:767px){.reading-status{background-image:url('/assets/ui/paper-grain.svg');background-size:320px 320px}}
