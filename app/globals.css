@@ -173,3 +173,11 @@ body,header,.menu-dialog[data-slot=dialog-content],.lightbox-toolbar,.lightbox-d
 
 /* Cover is an inline moving image, without native player chrome. */
 .cover-sheet>video::-webkit-media-controls{display:none!important}
+
+/* A separate still covers Safari's native loading/play overlay until playback. */
+.cover-sheet>.cover-video-poster{position:absolute;inset:0;pointer-events:none}
+.cover-sheet>.cover-video{position:absolute;inset:0;opacity:0;pointer-events:none}
+.cover-sheet>.cover-video.is-playing{opacity:1}
+.cover-video::-webkit-media-controls,
+.cover-video::-webkit-media-controls-start-playback-button,
+.cover-video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}

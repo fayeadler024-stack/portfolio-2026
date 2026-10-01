@@ -13,6 +13,7 @@ function Artwork({src,alt,priority=false,width=3508,height=2480}:{src:string;alt
 }
 
 function CoverVideo({alt}:{alt:string}) {
+ const [playing,setPlaying]=useState(false);
  const ref=useRef<HTMLVideoElement>(null);
  useEffect(()=>{
   const video=ref.current;
@@ -44,7 +45,7 @@ function CoverVideo({alt}:{alt:string}) {
    document.removeEventListener('keydown',play);
   };
  },[]);
- return <video ref={ref} src="/assets/cover/cover-playback.mp4" poster="/assets/cover/cover-first-frame.png" autoPlay muted loop playsInline preload="auto" controls={false} disablePictureInPicture disableRemotePlayback aria-label={alt}/>;
+ return <><img className="cover-video-poster" src="/assets/cover/cover-first-frame.png" alt={alt} fetchPriority="high"/><video className={playing?"cover-video is-playing":"cover-video"} onPlaying={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onWaiting={()=>setPlaying(false)} onError={()=>setPlaying(false)} ref={ref} src="/assets/cover/cover-playback.mp4" poster="/assets/cover/cover-first-frame.png" autoPlay muted loop playsInline preload="auto" controls={false} disablePictureInPicture disableRemotePlayback aria-hidden="true" tabIndex={-1}/></>;
 }
 
 export default function Portfolio(){
