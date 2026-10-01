@@ -181,3 +181,63 @@ body,header,.menu-dialog[data-slot=dialog-content],.lightbox-toolbar,.lightbox-d
 .cover-video::-webkit-media-controls,
 .cover-video::-webkit-media-controls-start-playback-button,
 .cover-video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
+
+/* Artist portfolio: restrained hierarchy and readable editorial typography. */
+header{font-size:14px;letter-spacing:0;border-bottom:0}
+header>a:first-child{font-weight:400;letter-spacing:0}
+.section{padding:112px 6vw;border-top:0}
+.section-label,.eyebrow,.info h2,.intro-rule,.back-link,.end-links{font-size:12px;letter-spacing:.02em;font-weight:400}
+.section-label>span:first-child{color:var(--muted-foreground)}
+.about h1{font-size:clamp(38px,5.2vw,72px);line-height:1.14;letter-spacing:-.035em;margin:40px 0 64px;font-weight:400}
+.about h1 em{margin-left:0;color:var(--foreground);letter-spacing:-.035em}
+.about-grid{grid-template-columns:1fr 2fr 1fr;gap:5vw}
+.about-name{font-size:15px;color:var(--foreground)}
+.about-name>span{font-size:12px;line-height:1.6;margin-top:8px}
+.about .bio,.about .fields{padding-top:0}
+.bio p{font-size:17px;line-height:1.75;letter-spacing:0;max-width:540px}
+.fields h2{font-size:12px;letter-spacing:.02em;margin-bottom:12px}
+.fields>span{font-size:13px;line-height:1.9;color:var(--muted-foreground)}
+.about-contact{border:0;margin-top:40px;padding-top:0;font-size:13px;gap:20px}
+.about-contact>span{display:none}
+.index{padding-top:80px}
+.index-heading{margin:0 0 32px;align-items:baseline}
+.index-heading h2{font-family:var(--font-editorial);font-size:clamp(34px,4vw,52px);line-height:1.15;letter-spacing:-.025em}
+.index-year{font-size:12px;color:var(--muted-foreground)}
+.project-row{grid-template-columns:42px minmax(0,1fr) 190px 48px 24px;gap:24px;min-height:112px;padding:30px 0}
+.project-number{font-family:var(--font-sans);font-style:normal;font-size:12px;letter-spacing:0;color:var(--muted-foreground);align-self:center}
+.project-row h3{font-family:var(--font-editorial);font-size:clamp(25px,2.7vw,38px);font-weight:400;line-height:1.25;letter-spacing:-.025em}
+.project-row .category,.project-row .year{font-size:12px;line-height:1.5;color:var(--muted-foreground);letter-spacing:0}
+.project-row>.arrow{font-size:20px;color:var(--muted-foreground)}
+.contact{background-color:transparent;color:var(--foreground);padding-top:120px}
+.contact .section-label>span:first-child{color:var(--muted-foreground)}
+.contact h2{font-family:var(--font-editorial);font-size:clamp(36px,4.5vw,62px);font-weight:400;line-height:1.15;letter-spacing:-.025em;margin:32px 0}
+.contact .email{font-size:clamp(18px,2.2vw,28px);font-weight:400;letter-spacing:-.015em;border:0}
+.contact .email .arrow{font-size:20px}
+footer{margin-top:100px;font-size:12px;color:var(--muted-foreground);letter-spacing:0}
+.intro-grid h1{font-size:clamp(38px,4.6vw,66px);line-height:1.12;letter-spacing:-.025em}
+.subtitle{font-size:15px;line-height:1.6}
+.info h2{text-transform:lowercase;color:var(--muted-foreground)}
+.info h2:first-letter{text-transform:uppercase}
+.info>div,.info p{font-size:15px;line-height:1.75}
+.artwork figcaption{font-size:11px;letter-spacing:.01em}
+.next-project>span{font-size:clamp(32px,4.5vw,60px);line-height:1.15;letter-spacing:-.025em}
+.menu-dialog nav small,.menu-foot{display:none}
+.menu-dialog nav a>span:nth-child(2){font-size:clamp(34px,5vw,56px);letter-spacing:-.025em}
+@media(max-width:767px){
+ .section{padding:72px 6vw}
+ .about h1{font-size:clamp(34px,8.5vw,48px);margin:28px 0 36px}
+ .about h1 em{margin-left:0;letter-spacing:-.035em}
+ .about-grid{grid-template-columns:1fr;gap:24px}
+ .bio p{font-size:16px}
+ .fields{gap:2px 16px}
+ .project-row{grid-template-columns:24px minmax(0,1fr) 24px;gap:8px 12px;padding:24px 0;min-height:100px}
+ .project-number{font-size:11px;margin-top:7px;align-self:start}
+ .project-row h3{font-size:27px}
+ .project-row .category{font-size:11px;color:var(--muted-foreground)}
+ .project-row .year{display:none}
+ .project-row>.arrow{font-size:18px}
+ .contact h2{margin:28px 0}
+ .contact .email{font-size:18px}
+ .intro-grid h1{font-size:40px}
+ footer{margin-top:64px}
+}
