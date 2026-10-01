@@ -241,3 +241,41 @@ footer{margin-top:100px;font-size:12px;color:var(--muted-foreground);letter-spac
  .intro-grid h1{font-size:40px}
  footer{margin-top:64px}
 }
+
+/* Ink, paper and project pigments: distinct emphasis without decorative UI. */
+:root{--foreground:#291A16;--muted-foreground:#67574E;--border:#C3B3A4}
+.about h1 em{color:#824326}
+.about{padding-bottom:72px}
+.index{padding-top:48px}
+.index-heading{padding-bottom:24px;border-bottom:2px solid var(--foreground);margin-bottom:0}
+.index-heading h2{font-family:var(--font-sans);font-size:clamp(32px,4vw,56px);letter-spacing:-.045em}
+.index-year{color:var(--foreground)}
+.project-row{min-height:142px;padding:36px 0;border-color:var(--border)}
+.project-row h3{color:var(--project-accent);font-size:clamp(30px,3.6vw,52px);line-height:1.12}
+.project-number{font-family:var(--font-editorial);font-style:italic;font-size:30px;color:var(--project-accent)}
+.project-row .category{color:var(--foreground)}
+.project-row>.arrow{color:var(--project-accent);font-size:26px}
+.project-row:nth-child(1){--project-accent:#813C1F!important}
+.project-row:nth-child(2){--project-accent:#455C37!important}
+.project-row:nth-child(3){--project-accent:#74517F!important}
+.project-row:nth-child(4){--project-accent:#9A4933!important}
+@media(hover:hover){.project-row:hover{background-color:rgb(255 255 255 / 22%)}}
+.contact{background-color:#39271F;color:#F4EADF;margin-top:64px;padding-top:80px}
+.contact .section-label>span:first-child{color:#DCC3AC}
+.contact h2{font-size:clamp(48px,7vw,100px);color:#F4EADF}
+.contact .email{color:#E9BC98;border-bottom:1px solid #936C53;padding-bottom:12px}
+.contact footer{color:#DCC3AC}
+@media(max-width:767px){
+ .cover{height:auto;min-height:0;padding:100px 0 48px}
+ .cover-sheet{width:96vw}
+ .about{padding-top:48px;padding-bottom:48px}
+ .index{padding-top:32px}
+ .index-heading{padding-bottom:22px}
+ .project-row{grid-template-columns:36px minmax(0,1fr) 24px;min-height:122px;padding:28px 0;gap:10px 12px}
+ .project-number{font-size:23px;margin-top:4px}
+ .project-row h3{font-size:32px;line-height:1.13}
+ .project-row .category{color:var(--muted-foreground)}
+ .project-row>.arrow{font-size:22px}
+ .contact{margin-top:32px;padding-top:56px}
+ .contact h2{font-size:52px}
+}
