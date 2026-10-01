@@ -255,10 +255,8 @@ footer{margin-top:100px;font-size:12px;color:var(--muted-foreground);letter-spac
 .project-number{font-family:var(--font-editorial);font-style:italic;font-size:30px;color:var(--project-accent)}
 .project-row .category{color:var(--foreground)}
 .project-row>.arrow{color:var(--project-accent);font-size:26px}
-.project-row:nth-child(1){--project-accent:#813C1F!important}
-.project-row:nth-child(2){--project-accent:#455C37!important}
-.project-row:nth-child(3){--project-accent:#74517F!important}
-.project-row:nth-child(4){--project-accent:#9A4933!important}
+.project-row:nth-child(odd){--project-accent:#39271F!important}
+.project-row:nth-child(even){--project-accent:#A24732!important}
 @media(hover:hover){.project-row:hover{background-color:rgb(255 255 255 / 22%)}}
 .contact{background-color:#39271F;color:#F4EADF;margin-top:64px;padding-top:80px}
 .contact .section-label>span:first-child{color:#DCC3AC}
@@ -279,3 +277,19 @@ footer{margin-top:100px;font-size:12px;color:var(--muted-foreground);letter-spac
  .contact{margin-top:32px;padding-top:56px}
  .contact h2{font-size:52px}
 }
+
+
+/* Project reading environments; paper texture stays below original artwork. */
+body:has(main[data-project="project-02"]){
+ --background:#11100F;--foreground:#E8B94F;--muted-foreground:#C5A65D;
+ --border:#51452C;--accent:#E8B94F;--paper-muted:#191714;--paper-viewer:#11100F;
+}
+body:has(main[data-project="project-03"]){
+ --background:#2C1B38;--foreground:#F2CEDF;--muted-foreground:#CDAEC4;
+ --border:#65506C;--accent:#F2CEDF;--paper-muted:#342140;--paper-viewer:#2C1B38;
+}
+main[data-project="project-02"],main[data-project="project-03"]{
+ --project-accent:var(--accent)!important;
+}
+body:has(main[data-project="project-02"]) .project-details,
+body:has(main[data-project="project-03"]) .project-details{color:var(--foreground)}
