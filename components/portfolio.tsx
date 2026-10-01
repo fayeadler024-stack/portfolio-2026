@@ -12,6 +12,41 @@ function Artwork({src,alt,priority=false,width=3508,height=2480}:{src:string;alt
  return failed ? <span className="image-error"><span>IMAGE UNAVAILABLE</span><small>Please check this portfolio page.</small></span> : <img ref={imageRef} src={src} alt={alt} loading={priority?'eager':'lazy'} fetchPriority={priority?'high':'auto'} decoding="async" width={width} height={height} onError={()=>setFailed(true)}/>;
 }
 
+function CoverVideo({alt}:{alt:string}) {
+ const ref=useRef<HTMLVideoElement>(null);
+ useEffect(()=>{
+  const video=ref.current;
+  if(!video)return;
+  let disposed=false;
+  const play=()=>{
+   if(disposed||document.hidden)return;
+   video.defaultMuted=true;
+   video.muted=true;
+   video.setAttribute('muted','');
+   video.setAttribute('playsinline','');
+   if(video.paused)void video.play().catch(()=>{/* Keep the poster until playback is allowed. */});
+  };
+  play();
+  video.addEventListener('loadeddata',play);
+  video.addEventListener('canplay',play);
+  window.addEventListener('pageshow',play);
+  document.addEventListener('visibilitychange',play);
+  // If the browser requires a gesture, retry on the first ordinary interaction.
+  document.addEventListener('pointerdown',play,{passive:true});
+  document.addEventListener('keydown',play);
+  return()=>{
+   disposed=true;
+   video.removeEventListener('loadeddata',play);
+   video.removeEventListener('canplay',play);
+   window.removeEventListener('pageshow',play);
+   document.removeEventListener('visibilitychange',play);
+   document.removeEventListener('pointerdown',play);
+   document.removeEventListener('keydown',play);
+  };
+ },[]);
+ return <video ref={ref} src="/assets/cover/cover-playback.mp4" poster="/assets/cover/cover-first-frame.png" autoPlay muted loop playsInline preload="auto" controls={false} disablePictureInPicture disableRemotePlayback aria-label={alt}/>;
+}
+
 export default function Portfolio(){
  const pathname=usePathname() || '/'; const router=useRouter();
  const project=projects.find(p=>pathname===`/work/${p.id}`);
@@ -39,7 +74,7 @@ export default function Portfolio(){
   {project&&<aside className="reading-status" style={{"--project-accent":project.accent} as CSSProperties} aria-label="Reading progress"><span>PROJECT {num(projects.indexOf(project)+1)}</span><span>{num(page)} <i>/ {num(project.pages.length)}</i></span></aside>}
   <main id="main" style={{"--project-accent":project?.accent||"#713B20"} as CSSProperties} className={`route ${leaving?'leaving':''}`} key={pathname}>
   {!project&&pathname==='/'?<>
-   <section className="cover" id="cover"><Nav to="/#about" className="cover-sheet" label="Explore portfolio — About"><video src="/assets/cover/cover.mp4" poster="/assets/cover/cover-first-frame.png" autoPlay muted loop playsInline preload="auto" controls={false} disablePictureInPicture disableRemotePlayback onCanPlay={event=>{const video=event.currentTarget;video.muted=true;void video.play().catch(()=>{});}} aria-label={covers[cover].alt}/></Nav>{covers.length>1&&<div className="cover-selector">{covers.map((c,i)=><button key={c.src} aria-label={`Show cover ${i+1}`} aria-pressed={cover===i} onClick={()=>setCover(i)}>{num(i+1)}</button>)}</div>}</section>
+   <section className="cover" id="cover"><Nav to="/#about" className="cover-sheet" label="Explore portfolio — About"><CoverVideo alt={covers[cover].alt}/></Nav>{covers.length>1&&<div className="cover-selector">{covers.map((c,i)=><button key={c.src} aria-label={`Show cover ${i+1}`} aria-pressed={cover===i} onClick={()=>setCover(i)}>{num(i+1)}</button>)}</div>}</section>
    <section id="about" className="section about"><div className="section-label"><span>01 / ABOUT</span><span>A PRACTICE IN PROGRESS</span></div><h1>Ideas take shape.<br/><em>Across disciplines.</em></h1><div className="about-grid"><div className="about-name">{profile.name}<span>DESIGNER / IMAGE MAKER</span></div><div className="bio"><p>{profile.introduction}</p><p>{profile.biography}</p></div><div className="fields"><h2>FIELDS</h2>{profile.fields.map(f=><span key={f}>{f}</span>)}</div></div><div className="about-contact"><span>CONTACT</span><a href={`mailto:${profile.email}`}>{profile.email} ↗</a>{profile.links.filter(l=>l.url).map(l=><a key={l.url} href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}</div></section>
    <section className="section index" id="work"><div className="section-label"><span>02 / SELECTED WORKS</span><span>{profile.year} / {num(projects.length)} PROJECTS</span></div><div className="index-heading"><h2>A selection<br/>of explorations<span className="serif">.</span></h2><span className="index-note">IDEAS, PROCESSES<br/>& PERSPECTIVES</span></div><div className="index-columns"><span>NO.</span><span>PROJECT</span><span>DISCIPLINE</span><span>YEAR</span><span/></div><div>{projects.map((p,i)=><Nav key={p.id} to={`/work/${p.id}`} className="project-row" style={{"--project-accent":p.accent} as CSSProperties}><span className="project-number">{num(i+1)}</span><h3>{p.title}<small className="index-page-count">{num(p.pages.length)} PAGES</small></h3><span className="category">{p.category}</span><span className="year">{p.year}</span><span className="arrow">↗</span></Nav>)}</div><div className="index-bottom"><span>READ AT YOUR OWN PACE.</span><span>↓</span></div></section>
    <Contact Nav={Nav}/>
