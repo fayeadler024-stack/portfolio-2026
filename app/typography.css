@@ -1,0 +1,90 @@
+/* Two voices: expressive titles and quiet, legible annotations. */
+@font-face{font-family:"DM Sans";src:url("/fonts/dm-sans-400-normal.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("/fonts/dm-sans-500-normal.ttf") format("truetype");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("/fonts/instrument-serif-400-normal.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("/fonts/instrument-serif-400-italic.ttf") format("truetype");font-style:italic;font-weight:400;font-display:swap}
+:root{
+ --font-sans:"DM Sans",Arial,sans-serif;
+ --font-editorial:"Instrument Serif",Georgia,serif;
+ --type-caption:12px;
+ --type-body:clamp(16px,1.2vw,18px);
+ --type-display:clamp(56px,7.3vw,112px);
+ --type-work:clamp(38px,4.8vw,72px);
+}
+body{font-family:var(--font-sans);font-weight:400;font-synthesis:none}
+header{font-size:14px;letter-spacing:-.015em}
+header>a:first-child{font-size:23px;font-family:var(--font-editorial);letter-spacing:-.015em;font-weight:400}
+header button{font-size:13px}
+.section-label,.intro-rule,.eyebrow,.back-link,.info h2{font-family:var(--font-sans);font-size:var(--type-caption);font-weight:400;letter-spacing:.025em}
+.about h1{font-family:var(--font-sans);font-size:clamp(40px,5.6vw,82px);font-weight:400;line-height:1.02;letter-spacing:-.055em;margin:44px 0 76px}
+.about h1 em{display:block;font-family:var(--font-editorial);font-size:1.32em;font-weight:400;font-style:italic;line-height:1.02;letter-spacing:-.025em;margin-left:13%;margin-top:8px}
+.about-grid{grid-template-columns:1fr 1.7fr 1fr;column-gap:6vw;align-items:start}
+.about-name{font-family:var(--font-editorial);font-size:28px;line-height:1.2;letter-spacing:-.015em}
+.about-name>span{font-family:var(--font-sans);font-size:12px;letter-spacing:0;line-height:1.5;margin-top:10px}
+.bio p{font-size:var(--type-body);line-height:1.65;letter-spacing:-.01em;max-width:34em}
+.fields h2{font-size:12px;letter-spacing:.025em}
+.fields>span{font-size:13px;line-height:1.85;letter-spacing:0}
+.about-contact{font-size:13px;letter-spacing:0;margin-top:48px}
+.index-heading{border-bottom:1px solid var(--border);padding-bottom:24px;align-items:baseline}
+.index-heading h2{font-family:var(--font-editorial);font-weight:400;font-size:clamp(48px,6vw,88px);line-height:1;letter-spacing:-.03em}
+.work-count{font-family:var(--font-sans);font-size:12px;font-weight:400;letter-spacing:0;vertical-align:top;display:inline-block;margin:8px 0 0 14px}
+.index-year{font-size:12px;font-variant-numeric:tabular-nums}
+.project-row{grid-template-columns:42px minmax(0,1fr) 176px 42px 30px;gap:24px;padding:34px 0;min-height:136px;align-items:baseline}
+.project-row h3{font-family:var(--font-editorial);font-size:var(--type-work);line-height:1.03;letter-spacing:-.025em;font-weight:400;margin:0;text-wrap:balance}
+.project-number{font-family:var(--font-sans);font-size:12px;font-style:normal;line-height:1.2;letter-spacing:.02em;align-self:baseline;font-variant-numeric:tabular-nums}
+.project-row .category,.project-row .year{font-size:12px;letter-spacing:0;line-height:1.45}
+.project-row>.arrow{font-size:24px;align-self:center}
+.project-intro{padding-top:140px}
+.intro-rule{margin-top:44px}
+.intro-grid{grid-template-columns:1.3fr 1fr;gap:7vw;margin:48px 0 88px;align-items:start}
+.intro-grid h1{font-family:var(--font-editorial);font-size:var(--type-display);font-weight:400;letter-spacing:-.025em;line-height:.98;text-wrap:balance;overflow-wrap:normal}
+.subtitle{font-family:var(--font-editorial);font-size:clamp(23px,2.5vw,34px);font-style:italic;line-height:1.25;letter-spacing:-.01em;margin-top:20px}
+.project-details{gap:28px;padding-top:7px}
+.info h2{font-size:11px;line-height:1.4;letter-spacing:.03em;margin-bottom:9px;text-transform:none}
+.info>div,.info p{font-family:var(--font-sans);font-size:15px;line-height:1.7;letter-spacing:0}
+.project-description>h2{display:none}
+.project-description p{font-size:17px;line-height:1.65}
+.artwork figcaption,.reading-status,.end-links{font-family:var(--font-sans);font-size:12px;letter-spacing:.015em;font-variant-numeric:tabular-nums}
+.reading-status>span:last-child{font-size:16px}
+.next-project small{font-size:11px;letter-spacing:.035em}
+.next-project>span{font-family:var(--font-editorial);font-size:clamp(44px,6vw,88px);letter-spacing:-.025em;line-height:1.02}
+.next-project em{font-size:13px}
+.contact h2{font-family:var(--font-editorial);font-size:clamp(72px,11vw,164px);line-height:.96;font-weight:400;letter-spacing:-.03em;margin:36px 0 40px}
+.contact .email{font-family:var(--font-sans);font-size:clamp(17px,2vw,28px);letter-spacing:-.015em;line-height:1.4;padding-bottom:16px}
+footer{font-family:var(--font-sans);font-size:12px;line-height:1.6;letter-spacing:0}
+.menu-dialog nav a>span:nth-child(2){font-family:var(--font-editorial);font-size:clamp(48px,6.5vw,80px);letter-spacing:-.02em;line-height:1.06}
+.menu-dialog nav a{padding:18px 0}
+.dialog-close,.lightbox-toolbar{font-family:var(--font-sans);font-size:12px;letter-spacing:.02em}
+@media(min-width:768px) and (max-width:1100px){
+ .project-row{grid-template-columns:32px minmax(0,1fr) 140px 32px 24px;gap:16px}
+ .intro-grid{gap:5vw}
+}
+@media(max-width:767px){
+ :root{--type-caption:11px;--type-body:16px;--type-work:clamp(36px,9.6vw,52px);--type-display:clamp(52px,13.5vw,78px)}
+ header>a:first-child{font-size:22px}
+ .about h1{font-size:clamp(34px,8.8vw,50px);line-height:1.08;letter-spacing:-.05em;margin:28px 0 44px}
+ .about h1 em{font-size:1.19em;margin-left:5%;letter-spacing:-.025em;margin-top:4px}
+ .about-grid{grid-template-columns:1fr;gap:26px}
+ .about-name{font-size:26px}
+ .about-contact{margin-top:32px}
+ .index-heading h2{font-size:48px}
+ .work-count{font-size:10px;margin:5px 0 0 9px}
+ .index-heading{padding-bottom:20px}
+ .project-row{grid-template-columns:22px minmax(0,1fr) 22px;gap:12px;padding:28px 0;min-height:0}
+ .project-number{font-size:10px;margin-top:6px;align-self:start}
+ .project-row h3{font-size:var(--type-work);line-height:1.02}
+ .project-row .category{font-size:11px;line-height:1.5}
+ .project-row>.arrow{font-size:20px;align-self:start;margin-top:8px}
+ .project-row .year{display:none}
+ .project-intro{padding-top:134px}
+ .intro-grid{grid-template-columns:1fr;gap:36px;margin:32px 0 52px}
+ .intro-grid h1{font-size:var(--type-display);line-height:1}
+ .subtitle{font-size:26px;margin-top:16px}
+ .project-details{padding:0;gap:26px}
+ .project-description p{font-size:16px;line-height:1.7}
+ .reading-status,.reading-status>span:last-child{font-size:11px}
+ .next-project>span{font-size:48px}
+ .contact h2{font-size:clamp(70px,19vw,100px);margin:28px 0 32px}
+ .contact .email{font-size:17px}
+ .menu-dialog nav a>span:nth-child(2){font-size:56px}
+}

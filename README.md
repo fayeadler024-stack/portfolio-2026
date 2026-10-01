@@ -69,3 +69,18 @@ Concrete、Interstices、Josie 和 Cover 原始素材未压缩重编码、裁切
 ## GitHub 仓库
 
 项目根目录包含 package.json，完整源码与 public/assets 一并保留。`/assets/...` 是站点根相对 URL，不依赖本机目录或固定域名；不要改成会在 `/work/project-01` 下解析错误的 `./assets/...`。本项目需要应用运行时，不是直接上传 GitHub Pages 的静态 HTML。
+
+## Typography system
+
+Fonts are self-hosted in public/fonts with their SIL Open Font License notices.
+app/typography.css owns the typography scale and responsive rules.
+
+| Role | Font | Desktop / mobile |
+| --- | --- | --- |
+| Project display title | Instrument Serif regular | 56–112px / 52–78px |
+| Index project title | Instrument Serif regular | 38–72px / 36–52px |
+| Secondary statement / subtitle | Instrument Serif italic | Responsive, paired with regular sans |
+| Body / description | DM Sans regular | 16–18px |
+| Navigation / metadata / captions | DM Sans regular | 11–14px |
+
+Keep display text at weight 400. Use the italic face only for the About second line and project subtitles. Project palettes, paper surfaces and artwork proportions remain independent of this type scale.
